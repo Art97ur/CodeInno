@@ -74,7 +74,7 @@ export const dataList = [
     image:
       "https://lh5.googleusercontent.com/p/AF1QipN5KRiUKXTTe82SIW4SDNVUY-B4lemGUie429Y_=w408-h272-k-no",
     src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.1695792468786!2d44.51409331534847!3d40.18303937939302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abce36330584b%3A0xf87bea155165fdac!2zTGF2YXNoIFJlc3RhdXJhbnQgKNS81aHVvtWh1bcg1bzVpdW91b_VuNaA1aHVtik!5e0!3m2!1sru!2s!4v1664015668334!5m2!1sru!2s",
-    webApp: "https://www.yeremyanprojects.com/restaurants/lavash",
+    webApp: "https://www.tripadvisor.ru/Restaurant_Review-g293932-d12321316-Reviews-Lavash_Restaurant-Yerevan.html",
   },
   {
     id: 8,

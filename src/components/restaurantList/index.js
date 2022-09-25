@@ -1,38 +1,41 @@
-import { memo } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { dataList } from "../../staticData";
 import "./styles.css";
 
-export const RestaurantsList = memo(({ getid, setBtnId }) => {
+export const RestaurantsList = ({ getid }) => {
+  const [btnId, setBtnId] = useState();
+  console.log(btnId);
   const navigate = useNavigate();
   const handleBtnClick = (e) => {
     setBtnId(e.target.id);
-    navigate("/about");
+    navigate(`/about`);
+    localStorage.setItem("btnId", JSON.stringify(e.target.id));
   };
   return (
     <div className="restList">
       {dataList
         .sort((a, b) => (a.rate < b.rate ? 1 : -1))
-        .map(({ name, rate, address, image, id }) => {
-          if (id !== 0) {
+        .map((item, i) => {
+          if (item.id !== 0) {
             return (
-              <div key={id} className="wrapper">
+              <div key={i} className="wrapper">
                 <div
                   className="each-rest"
-                  id={id}
+                  id={item.id}
                   onClick={() => {
-                    getid(id);
+                    getid(item.id);
                   }}
                 >
                   <div className="img">
-                    <img src={image} alt="" />
+                    <img src={item.image} alt="" />
                   </div>
                   <div className="desc-rest">
-                    <p>{name}</p>
-                    <p>{address}</p>
+                    <p>{item.name}</p>
+                    <p>{item.address}</p>
                     <p>
                       {" "}
-                      <b>REVIEWS:</b> {rate}{" "}
+                      <b>REVIEWS:</b> {item.rate}{" "}
                     </p>
                   </div>
                 </div>
@@ -43,7 +46,7 @@ export const RestaurantsList = memo(({ getid, setBtnId }) => {
                   <span className="circle" aria-hidden="true">
                     <span className="icon arrow"></span>
                   </span>
-                  <span id={id} className="button-text">
+                  <span id={item.id} className="button-text">
                     More Info
                   </span>
                 </button>
@@ -53,4 +56,4 @@ export const RestaurantsList = memo(({ getid, setBtnId }) => {
         })}
     </div>
   );
-});
+};
